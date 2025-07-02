@@ -1,0 +1,22 @@
+To install Robot Framework with Appium:
+pip install robotframework-appiumlibrary
+
+
+For Excel:
+pip install robotframework-excelsage
+
+
+robot -d Output --loglevel TRACE app.robot presentation.robot
+
+robot -d Output --loglevel TRACE User_Login Presentation/Download_Presentation.robot Presentation/View_Presentation.robot Presentation/Execute_Tour_With_Presentation.robot Tour_Plan Convert_Tour_Plan
+
+robot -d Output --loglevel TRACE SmartForce_Login/User_Login.robot
+
+robot -d Output --loglevel TRACE SmartForce_Login/InvalidLogin.robot SmartForce_Login/ValidLogin.robot SmartForce_Login/Sync.robot
+ Presentation/Download_Presentation.robot Presentation/View_Presentation.robot Presentation/Execute_Tour_With_Presentation.robot Tour_Plan Convert_Tour_Plan
+
+
+
+robot -d Output --loglevel TRACE App SmartForce_Login
+
+robot -d Output --loglevel TRACE App Tour_Plan Convert_Tour_Plan DCR/Contact-DCR.robot Survey Presentation/Download_Presentation.robot Presentation/View_Presentation.robot Presentation/Execute_Tour_With_Presentation.robot DCR/Account-DCR.robot TOT Event/Event.robot Event/Activities.robot SampleStocks/Removesamplestock.robot SampleStocks/Ordersamplestock.robot Coaching Expenses
