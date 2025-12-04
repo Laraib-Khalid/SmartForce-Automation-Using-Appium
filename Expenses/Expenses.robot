@@ -11,7 +11,7 @@ ${EXPENSE_DATE}             10
 ${EXPENSE_COUNTRY}          United Arab Emirates
 ${EXPENSE_BEHALF}           QA Team
 ${EXPENSE_STATUS}           Draft
-${RELATED_CONTACT}          Jason Patel
+${RELATED_CONTACT}          Eddie Davila
 ${EXPENSE_TYPE}             Accommodation
 ${EXPENSE_AMOUNT}           $750
 ${BUYING_CURRENCY}          USD
@@ -19,7 +19,7 @@ ${SELLING_CURRENCY}         USD
 ${EXCHANGE_RATE_BUYING}     $300
 ${EXCHANGE_RATE_SELLING}    $250
 ${REPORT_LINE_COUNTRY}      United Arab Emirates
-${RELATED_ACCOUNT}          AE-Sample Brick-04
+${RELATED_ACCOUNT}          Victoria Hospital
 
 
 *** Test Cases ***
@@ -68,10 +68,15 @@ Verify that user can Add new expense in the Expense module
     Wait Until Element Is Visible    xpath=//android.widget.ScrollView/android.view.ViewGroup       10s
     Sleep    5s
     Click Element    xpath=//android.view.ViewGroup[@content-desc="${EXPENSE_STATUS}"]
-#Click on the Save button.
-    Sleep    5s
-    Wait Until Element Is Visible    xpath=//android.view.ViewGroup[@content-desc="Save"]       10s
-    Click Element    xpath=//android.view.ViewGroup[@content-desc="Save"]
+
+#    No need to write this code.
+
+##Click on the Save button.
+#    Sleep    5s
+#    Wait Until Element Is Visible    xpath=//android.view.ViewGroup[@content-desc="Save"]       10s
+#    Click Element    xpath=//android.view.ViewGroup[@content-desc="Save"]
+
+
 #Click on the Add button in Expense Report Line Items.
     Sleep    5s
     Click Element    xpath=//android.view.ViewGroup[@content-desc="Add"]
@@ -81,32 +86,39 @@ Verify that user can Add new expense in the Expense module
 ##Amount: $750
     Sleep    5s
     Input Text    xpath=//android.widget.EditText[@resource-id="@undefined/input" and @text="Amount"]    ${EXPENSE_AMOUNT}
-#Buying Currency: USD
-    Sleep    5s
-    Click Element    xpath=(//android.view.ViewGroup[@content-desc="Default"])[1]
-    Sleep    5s
-    Wait Until Element Is Visible    xpath=//android.widget.ScrollView/android.view.ViewGroup       10s
-    Sleep    5s
-    Click Element    xpath=//android.view.ViewGroup[@content-desc="${BUYING_CURRENCY}"]
-#Selling Currency: USD
-    Sleep    5s
-    Click Element    xpath=(//android.widget.TextView[@text="Default"])[1]
-    Sleep    3s
-    Wait Until Element Is Visible    xpath=//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]       10s
-    Sleep    5s
-    Click Element    xpath=//android.view.ViewGroup[@content-desc="${SELLING_CURRENCY}"]
-#Exchange Rate Buying: $300
-    Sleep    5s
-    Input Text    xpath=//android.widget.EditText[@resource-id="@undefined/input" and @text="Exchange Rate Buying"]    ${EXCHANGE_RATE_BUYING}
-#Exchange Rate Selling: $250
-    Sleep    5s
-    Input Text    xpath=//android.widget.EditText[@resource-id="@undefined/input" and @text="Exchange Rate Selling"]    ${EXCHANGE_RATE_SELLING}
+
+#    No need to write this code.
+
+##Buying Currency: USD
+#    Sleep    5s
+#    Click Element    xpath=(//android.view.ViewGroup[@content-desc="Default"])[1]
+#    Sleep    5s
+#    Wait Until Element Is Visible    xpath=//android.widget.ScrollView/android.view.ViewGroup       10s
+#    Sleep    5s
+#    Click Element    xpath=//android.view.ViewGroup[@content-desc="${BUYING_CURRENCY}"]
+##Selling Currency: USD
+#    Sleep    5s
+#    Click Element    xpath=(//android.widget.TextView[@text="Default"])[1]
+#    Sleep    3s
+#    Wait Until Element Is Visible    xpath=//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]       10s
+#    Sleep    5s
+#    Click Element    xpath=//android.view.ViewGroup[@content-desc="${SELLING_CURRENCY}"]
+##Exchange Rate Buying: $300
+#    Sleep    5s
+#    Input Text    xpath=//android.widget.EditText[@resource-id="@undefined/input" and @text="Exchange Rate Buying"]    ${EXCHANGE_RATE_BUYING}
+##Exchange Rate Selling: $250
+#    Sleep    5s
+#    Input Text    xpath=//android.widget.EditText[@resource-id="@undefined/input" and @text="Exchange Rate Selling"]    ${EXCHANGE_RATE_SELLING}
+
+
+
 #Date: 10/6/2025
     Sleep    5s
-    Click Element    xpath=//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup[9]/android.view.ViewGroup/*
+#    Click Element    xpath=//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup[9]/android.view.ViewGroup/*
+    Click Element    xpath=//android.widget.TextView[@text="Date"]//following-sibling::android.view.ViewGroup//android.view.ViewGroup//android.widget.TextView
     Sleep    3s
-    Wait Until Element Is Visible    xpath=//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup        10s
-    Sleep    5s
+#    Wait Until Element Is Visible    xpath=//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup        10s
+#    Sleep    5s
     Click Element    xpath=//android.view.ViewGroup[@content-desc="${EXPENSE_DATE}"]/android.view.ViewGroup
 #Country: United Arab Emirates
     Sleep    5s
@@ -123,7 +135,7 @@ Verify that user can Add new expense in the Expense module
     Sleep    5s
     Input Text    xpath=//android.widget.EditText[@resource-id="@@autocomplete/input/input"]    ${RELATED_ACCOUNT}
     Wait Until Element Is Visible    xpath=//android.widget.ScrollView/android.view.ViewGroup       10s
-    Click Element    xpath=(//android.widget.TextView[@text="${RELATED_ACCOUNT}"])[1]
+    Click Element    xpath=//android.widget.TextView[@text="${RELATED_ACCOUNT}"]
 #Related Contact: Dr. Eddie Davila
     Sleep    5s
     Click Element    xpath=//android.widget.EditText[@resource-id="@@autocomplete/input-anchor/input" and @text="Search Contact"]

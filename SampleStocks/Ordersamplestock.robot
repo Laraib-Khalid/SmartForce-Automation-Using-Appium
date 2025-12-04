@@ -12,9 +12,8 @@ ${PLANNED_SAMPLES}       Detailing
 
 Order sample stock
 #click sample stock
-    Wait Until Element Is Visible    xpath=//android.view.ViewGroup[@content-desc="Sample Stock"]/android.view.ViewGroup/android.view.ViewGroup         10s
-    Click Element  xpath=//android.view.ViewGroup[@content-desc="Sample Stock"]/android.view.ViewGroup/android.view.ViewGroup
-    Click Element  xpath=//android.view.ViewGroup[@content-desc="Sample Stock"]/android.view.ViewGroup/android.view.ViewGroup
+    click element  xpath=//android.view.ViewGroup[@content-desc="Sample Stock"]/android.view.ViewGroup/android.view.ViewGroup
+    click element  xpath=//android.view.ViewGroup[@content-desc="Sample Stock"]/android.view.ViewGroup/android.view.ViewGroup
 #click on the beclomatason 20ml
     Sleep    3s
     Log To Console      ${PRODUCT_SKUS}
@@ -23,7 +22,6 @@ Order sample stock
     Wait Until Element Is Visible    xpath=//android.view.ViewGroup[contains(@content-desc,"${PRODUCT_SKUS}")]
     Sleep    5s
     Click Element    xpath=//android.view.ViewGroup[contains(@content-desc,"${PRODUCT_SKUS}")]
-    Sleep    5s
     Wait Until Element Is Visible    xpath=//android.widget.TextView[contains(@text,"SampleStock")]     10s
 #swipe
 #    Swipe    1575    891    1280    0    800   # 2 swipes
@@ -45,9 +43,9 @@ Order sample stock
 #Sample Order Date
     Sleep    10s
     Click Element    xpath=//android.widget.TextView[@text="Samples Order Date"]/following-sibling::android.view.ViewGroup/android.widget.TextView
-    Sleep    5s
+    Sleep    3S
     Wait Until Element Is Visible    xpath=//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup     10s
-    Sleep    10s
+    Sleep    5s
     Click Element    xpath=//android.view.ViewGroup[@content-desc="${SAMPLE_ORDER_DATE}"]
 #Planned Usage of Samples
     Sleep    5s
@@ -61,4 +59,4 @@ Order sample stock
 #click save btn
     Sleep    5s
     Click Element    xpath=//android.view.ViewGroup[@content-desc="Save"]
-    Sleep    5s
+    Wait Until Element Is Visible    xpath=//android.view.ViewGroup[@content-desc="Sample Stock"]/android.view.ViewGroup/android.view.ViewGroup     10s

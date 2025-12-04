@@ -1,7 +1,3 @@
-To install Robot Framework with Appium:
-pip install robotframework-appiumlibrary
-
-
 For Excel:
 pip install robotframework-excelsage
 

@@ -2,12 +2,13 @@
 Library    AppiumLibrary
 Library    DateTime
 Resource   ../Excel/Excel_Keywords.resource
+Library    ../Touch_Keyword/Touch_Keyword.py
 
 *** Variables ***
 ${EXCEL_TOUR_PLAN_SHEET}        Tour Plan
 ${EXCEL_CONVERT_PLAN_SHEET}     Convert Tour Plan
 # Contact and appointment details
-${CONTACT_NAME}                 Sarah Thompson
+#${CONTACT_NAME}                 Eddie Davila
 #${APPOINTMENT_DATE_OPTION}         2025-06-02
 #${APPOINTMENT_TIME_OPTION}         14:30
 #${APPOINTMENT_DATE_OPTION}      ${APPOINTMENT_DATE}
@@ -66,8 +67,9 @@ Convert Tour Plan and execute Tour
 
     IF    not ${is_visible}
     Click Element    xpath=//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[3]/android.view.ViewGroup[1]
-    Wait Until Element Is Visible    xpath=//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup    10s
-    Click Element    xpath=//android.widget.TextView[@text="Tour Plan"]
+#    Wait Until Element Is Visible    xpath=//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup    10s
+    Tap At Coordinates  65  325
+
     Wait Until Element Is Visible    xpath=//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[3]/android.view.ViewGroup[@content-desc="Tour Plan"]    10s
     END
 
@@ -98,12 +100,12 @@ Convert Tour Plan and execute Tour
     Log To Console  Selected date is: ${TOUR_EXECUTION_DATE}
     ${TOUR_EXECUTION_DATE}=    Convert Date    ${TOUR_EXECUTION_DATE}    result_format=%Y-%m-%d    date_format=%d/%m/%Y
     Log To Console    Selected date is: ${TOUR_EXECUTION_DATE}
-    Set Global Variable    ${TOUR_EXECUTION_DATE}
+#    Set Global Variable    ${TOUR_EXECUTION_DATE}
     Sleep    5s
 
     ${TOUR_EXECUTION_TIME}=    Get Element Attribute    xpath=//android.widget.TextView[@text="Time"]/following-sibling::android.view.ViewGroup[1]/android.view.ViewGroup    content-desc
     Log To Console  Selected time is: ${TOUR_EXECUTION_TIME}
-    Set Global Variable    ${TOUR_EXECUTION_TIME}
+#    Set Global Variable    ${TOUR_EXECUTION_TIME}
     Sleep    5s
 
 
@@ -114,7 +116,8 @@ Convert Tour Plan and execute Tour
 
 
 #   Swipe to Show Survey Questions
-    Swipe    1280    1295    1280    519    500
+   Swipe    1280    1295    1280    519    500
+#    Swipe    1280    919    1280    519    500
     Sleep    2s
 
 
@@ -155,6 +158,12 @@ Convert Tour Plan and execute Tour
     Click Element    xpath=//android.view.ViewGroup[@content-desc="S And T"]
     Sleep    10s
 
+
+##   Need to comment below 2 lines after general and product survey is displayed.
+#    Click Element    xpath=//android.view.ViewGroup[@content-desc="Pharma Product Distribution & Demand Survey(ENT)"]/android.view.ViewGroup/com.horcrux.svg.SvgView
+#    Sleep    5s
+
+
     # Fill S&T section
     Wait Until Element Is Visible    xpath=//android.widget.TextView[@text="${S&T_question_1}"]        10s
     Click Element    xpath =//android.view.ViewGroup[@content-desc="Default"]/android.view.ViewGroup/com.horcrux.svg.SvgView/com.horcrux.svg.GroupView/com.horcrux.svg.GroupView/com.horcrux.svg.GroupView/com.horcrux.svg.PathView
@@ -173,12 +182,13 @@ Convert Tour Plan and execute Tour
 
     #   Swipe to Show Brand Discussion Section
     Swipe    1280    1295    1280    519    500
-
+#    Swipe    1280    919    1280    519    500
 
     # Fill Brand discussion
 
     Wait Until Element Is Visible    //android.widget.TextView[@text="Prio 1 - Brand Discussed"]        10s
-    Click Element    //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/com.horcrux.svg.SvgView
+#    Click Element    //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[3]/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/com.horcrux.svg.SvgView
+    Click Element    xpath=(//android.widget.EditText[@text="Search Usecases.."])[1]
     Sleep    5s
     Wait Until Element Is Visible    //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup      20s
     Sleep    5s
@@ -230,7 +240,7 @@ Convert Tour Plan and execute Tour
     Open Or Create Workbook And Sheet       ${EXCEL_CONVERT_PLAN_SHEET}
 #   Rename Sheet    Sheet   ${EXCEL_EVENT_SHEET}
     Write To Cell    A1    Convert Plan Contact Name       ${EXCEL_CONVERT_PLAN_SHEET}
-    Write To Cell    A2    ${CONTACT_NAME}       ${EXCEL_CONVERT_PLAN_SHEET}
+    Write To Cell    A2    ${SEARCH_CONTACT_NAME}       ${EXCEL_CONVERT_PLAN_SHEET}
     Write To Cell    B1    Convert Plan Appointment Date    ${EXCEL_CONVERT_PLAN_SHEET}
     Write To Cell    B2    ${TOUR_EXECUTION_DATE}     ${EXCEL_CONVERT_PLAN_SHEET}
     Write To Cell    C1    Convert Plan Appointment Time        ${EXCEL_CONVERT_PLAN_SHEET}
@@ -264,8 +274,10 @@ View the Executed Tour
 
     IF    not ${is_visible}
     Click Element    xpath=//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[3]/android.view.ViewGroup[1]
-    Wait Until Element Is Visible    xpath=//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup    10s
-    Click Element    xpath=//android.widget.TextView[@text="Tour Execution"]
+    Sleep    2s
+#    Wait Until Element Is Visible    xpath=//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2 ]/android.view.ViewGroup    10s
+#    Click Element    xpath=//android.widget.TextView[@text="Tour Execution"]
+    Tap At Coordinates  105   400
     Wait Until Element Is Visible    xpath=//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[3]/android.view.ViewGroup[@content-desc="Tour Execution"]    10s
     END
 
@@ -281,12 +293,12 @@ View the Executed Tour
 
     # Input the contact name in the search bar
     # This helps to filter and locate the relevant activity record quickly.
-    Input Text    xpath=//android.widget.EditText[@resource-id="@undefined/input"]    ${CONTACT_NAME}
+    Input Text    xpath=//android.widget.EditText[@resource-id="@undefined/input"]    ${CONVERT_PLAN_CONTACT_NAME}
     Sleep    2s
 
     # Wait until the contact name appears in the search results
     # Ensures that the app has loaded the result before attempting any further action.
-    Wait Until Element Is Visible    xpath=(//android.widget.TextView[contains(@text,"${CONTACT_NAME}")])[1]     10s
+    Wait Until Element Is Visible    xpath=(//android.widget.TextView[contains(@text,"${CONVERT_PLAN_CONTACT_NAME}")])[1]     10s
     Sleep    3s
 
     # Scroll through the list to find the matching tour execution entry based on contact name, date, and time
